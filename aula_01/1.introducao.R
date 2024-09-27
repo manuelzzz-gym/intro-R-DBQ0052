@@ -19,6 +19,7 @@
 3<=5	      #menor ou igual
 
 
+
 # Operacoes concatenadas
 ((2+5-3)*10)^4/7^4
 
@@ -29,6 +30,9 @@
 
 x<-1        # A seta "<-" representa o simbolo de atribuicao
 x           # Ao escrever o nome do objeto, seu valor sera impresso
+class(x)
+is.numeric(x)
+length(x)
 
 y<-"gol do gremio!"
 y
