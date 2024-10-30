@@ -87,7 +87,8 @@ especiesComunsDoisParaUm
 # Quais as posições e os valores dessas espécies?
 posicoesEspeciesComunsUmParaDois <- which(amostra1$especie %in% especiesComunsUmParaDois)
 posicoesEspeciesComunsUmParaDois
-
+valoresEspeciesComunsUmParaDois <- amostra1$especie[posicoesEspeciesComunsUmParaDois]
+valoresEspeciesComunsUmParaDois
 
 # Questão 3 ---------------------------------------------------------------
 
@@ -100,9 +101,8 @@ df <- data.frame(col1 = 1:3, col2 = 2:4, col3 = 3:5)
 
 # 1) Selecione a primeira coluna
 df[,1]
-
+df[[1]]
 
 # 2) 3º elemento da 2ª coluna
 df[3,2]
-
-
+df[[3,2]]
