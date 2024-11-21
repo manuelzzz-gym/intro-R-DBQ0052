@@ -6,26 +6,27 @@ set.seed(20)
 x <- rnorm(100)
 e <- rnorm(100, 0, 2)
 y <- 0.5 + 2 * x + e
-lm(y ~ x) 
+lm(y ~ x)
 
 lm                          #funcao modelo linear
 help(lm)                    #faz párte do pacote stats
 
-lm<-x                       #atribuimos um valor a lm
-lm                          
-lm(y ~ x) 
+lm <- x                       #atribuimos um valor a lm
+lm
+lm(y ~ x)
 
-lm<-function(x) {x*x}       #definimos uma nova função lm
+lm <- function(x) {
+  x * x
+}       #definimos uma nova função lm
 lm                          # essa nova funcao esta no GloEnv
 lm(y ~ x)
 lm(x)
 
-search()                   
+search()
 stats::lm
 stats::lm (y ~ x)
 
-
-dt<-cars
+dt <- cars
 attach(dt)                 #The database is attached to the R search path
 search()
 
@@ -43,11 +44,11 @@ search()
 ######################################
 
 #funcoes necessitam de argumentos
-x<-1:10              
+x <- 1:10
 sum(x)                  #argumentos podem ter valor pre-definido
 args(sum)
 
-x<-c(x, NA)
+x <- c(x, NA)
 sum(x)
 sum(x, na.rm = T)
 
@@ -63,39 +64,41 @@ sum(na.rm = T, x)
 #     }
 
 
-f<-function(){                    #Imprime 12. Nao possui argumentos.
+f <- function() {
+  #Imprime 12. Nao possui argumentos.
   12
 }
 
 f()
 
-f1<-function(x){                   #simplesmente imprime "BU!" com qualquer argumento.
+f1 <- function(x) {
+  #simplesmente imprime "BU!" com qualquer argumento.
   
   "BU!!"
 }
 
-
-
-f2<-function(x, y=10){            #pode apresentar valor default
-  x+y
+f2 <- function(x, y = 10) {
+  #pode apresentar valor default
+  x + y
 }
 
 f2(2)
 f2(2, 4)
 
-
-f3<-function(a,b) {              #quando construimos um objeto eh necessario imprimir
-  res<-c()
-  res[1]<-a^2
-  res[2]<-b+1
+f3 <- function(a, b) {
+  #quando construimos um objeto eh necessario imprimir
+  res <- c()
+  res[1] <- a ^ 2
+  res[2] <- b + 1
   res
   #print(res)
 }
 
 f3(2, 4)
 
-f4<-function(x,y){              #pode ler argumentos do ambiente
-  x^2 + y/z
+f4 <- function(x, y) {
+  #pode ler argumentos do ambiente
+  x ^ 2 + y / z
 }
 
 f4(2, 4)
@@ -103,19 +106,22 @@ f4(2, 4)
 
 #funcao dentro de funcao
 
-make.power <-function(n) {
-  pow <-function(x) {
-    x^n
+make.power <- function(n) {
+  pow <- function(x) {
+    x ^ n
   }
   pow
 }
 
-cube<-make.power(3)
-square<-make.power(2)
-
-
+cube <- make.power(3)
+square <- make.power(2)
 
 #faca uma funcao para calcular o IMC
 
+imc <- function(peso, altura) {
+  peso / (altura ^ 2)
+}
 
-
+imc(70, 1.75)
+imc(67, 1.77)
+imc(49, 1.82)
