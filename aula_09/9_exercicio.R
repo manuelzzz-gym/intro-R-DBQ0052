@@ -1,5 +1,4 @@
 
-
 # Exercício 9 -------------------------------------------------------------
 
 # Questão 1 ---------------------------------------------------------------
@@ -66,7 +65,7 @@ faz_matriz <- function(n) {
   matriz1 <- matrix(sample(1:1000, n^2, replace = TRUE), nrow = n, ncol = n)
   matriz2 <- matrix(ifelse(matriz1 %% 2 == 0, 0, 1), nrow = n, ncol = n)
   
-  return(list(matriz1 = matriz1, matriz2 = matriz2))
+  return(list(matriz1 = matriz1, matriz2 = matriz2))   
 }
 
 faz_matriz(2)
@@ -81,4 +80,3 @@ faz_matriz(2)
 #       [,1] [,2]
 # [1,]    0    1
 # [2,]    0    0
-
