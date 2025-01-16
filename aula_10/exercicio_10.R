@@ -40,7 +40,7 @@ apply(mt, 1, prod)
 # Crie uma função chamada 'describe()' para descrever alguns parâmetros das colunas 
 # numéricas de um dataframe. A função irá retornar um outro dataframe contendo
 # a média, os valores mínimo e máximo, o número de ocorrências únicas de cada valor, 
-# e o número de NAs de cada coluna. 
+# e o número de NAs de cada coluna.
 
 # Exemplo:
 # Input:
@@ -55,30 +55,17 @@ apply(mt, 1, prod)
 # n_unique  68.00000 118.0000 31.000000 40.00000 5.000000 31.00000
 # n_nas     37.00000   7.0000  0.000000  0.00000 0.000000  0.00000
 
-describe <- function(ls) {
-  df <- data.frame(
-    media = numeric(),
-    minimo = numeric(),
-    maximo = numeric(),
-    n_unique = numeric(),
-    n_nas = numeric()
+describe <- function(df) {
+  t(
+    data.frame(
+      media = sapply(df, mean),
+      minimo = sapply(df, min),
+      maximo = sapply(df, max),
+      n_unique = sapply(df, function(x) length(unique(x))),
+      n_nas = sapply(df, function(x) sum(is.na(x))),
+      colnames = rownames(df)
+    )
   )
-
-  for (i in 1:ncol(ls)) {
-    media <- mean(ls[[i]], na.rm = TRUE)
-    minimo <- min(ls[[i]], na.rm = TRUE)
-    maximo <- max(ls[[i]], na.rm = TRUE)
-    n_unique <- length(unique(ls[[i]]))
-    n_nas <- sum(is.na(ls[[i]]))
-
-    df <- rbind(df, c(media, minimo, maximo, n_unique, n_nas))
-  }
-  
-  df <- t(df)
-  colnames(df) <- colnames(ls)
-  rownames(df) <- c("media", "minimo", "maximo", "n_unique", "n_nas")
-
-  return(df)
 }
 
 describe(airquality)
